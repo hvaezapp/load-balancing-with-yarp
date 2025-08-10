@@ -64,7 +64,7 @@ app.Run();
 
 
 #region EnsureUserTable
-async Task EnsureUserTable(IServiceProvider services)
+static async Task EnsureUserTable(IServiceProvider services)
 {
     await using var scope = services.CreateAsyncScope();
     var dataSource = scope.ServiceProvider.GetRequiredService<NpgsqlDataSource>();
