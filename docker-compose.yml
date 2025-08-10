@@ -1,0 +1,6 @@
+services:
+  loadbalancing.api:
+    image: ${DOCKER_REGISTRY-}loadbalancingapi
+    build:
+      context: LoadBalancing.Api
+      dockerfile: Dockerfile
