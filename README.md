@@ -1,2 +1,2 @@
-# yarp-load-balancing
-About An example project demonstrating how to horizontally scale an application using YARP, and run performance tests with k6.
+# load-balancing-yarp
+About An example project demonstrating how to horizontally scale an application using YARP.
