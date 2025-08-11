@@ -1,5 +1,5 @@
-﻿using Bogus;
-using Dapper;
+﻿using Dapper;
+using LoadBalancing.Api.Models.Dtos;
 using Npgsql;
 
 namespace LoadBalancing.Api.Endpoints;
@@ -8,35 +8,52 @@ public static class UserEndpoint
 {
     public static void MapUserEndpoints(this IEndpointRouteBuilder routeBuilder)
     {
-        routeBuilder.MapPost("addFakeUser", async (NpgsqlDataSource source) =>
+        routeBuilder.MapPost("addUser", async (CreateUserDto dto,
+                                               NpgsqlDataSource source) =>
         {
-            var faker = new Faker();
-
             await using var connection = await source.OpenConnectionAsync();
-
             var userId = await connection.ExecuteScalarAsync<int>(
                 """
                     INSERT INTO users (first_name, last_name, date_of_birth)
                     VALUES (@FirstName, @LastName, @DateOfBirth)
                     RETURNING id;
                 """,
-                new User
+                new
                 {
-                    FirstName = faker.Name.FirstName(),
-                    LastName = faker.Name.LastName(),
-                    DateOfBirth = faker.Date.Past(20).ToUniversalTime()
+                    dto.FirstName,
+                    dto.LastName,
+                    dto.DateOfBirth
+
                 });
 
             connection.Close();
-
             return Results.Ok(new { id = userId });
+        });
+
+        routeBuilder.MapGet("users", async (NpgsqlDataSource source) =>
+        {
+            await using var connection = await source.OpenConnectionAsync();
+
+            var user = await connection.QuerySingleAsync<GetUserDto>(
+                """
+                 SELECT
+                    id AS Id,
+                    first_name AS FirstName,
+                    last_name AS LastName,
+                    date_of_birth AS DateOfBirth
+                 FROM users
+                """);
+
+            connection.Close();
+            return Results.Ok(user);
+
         });
 
         routeBuilder.MapGet("users/{id}", async (int id, NpgsqlDataSource source) =>
         {
             await using var connection = await source.OpenConnectionAsync();
 
-            var user = await connection.QuerySingleAsync<User>(
+            var user = await connection.QuerySingleAsync<GetUserDto>(
                 """
                  SELECT
                     id AS Id,
@@ -49,7 +66,6 @@ public static class UserEndpoint
                 new { UserId = id });
 
             connection.Close();
-
             return Results.Ok(user);
 
         });

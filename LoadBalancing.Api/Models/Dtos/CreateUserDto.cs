@@ -1,6 +1,7 @@
-﻿public sealed class User
+﻿namespace LoadBalancing.Api.Models.Dtos;
+
+public class CreateUserDto
 {
-    public int Id { get; init; }
     public string FirstName { get; init; } = null!;
     public string LastName { get; init; } = null!;
     public DateTime DateOfBirth { get; init; }
