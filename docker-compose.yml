@@ -11,9 +11,9 @@ services:
     mem_limit: "0.5G"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - 5000:8080
-      - 5001:8081
     networks:
       - proxybackend
 
@@ -27,9 +27,9 @@ services:
     mem_limit: "0.5G"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - 6000:8080
-      - 6001:8081
     networks:
       - proxybackend
 
@@ -43,9 +43,9 @@ services:
     mem_limit: "0.5G"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - 7000:8080
-      - 7001:8081
     networks:
       - proxybackend
 
@@ -59,9 +59,9 @@ services:
     mem_limit: "0.5G"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - 8000:8080
-      - 8001:8081
     networks:
       - proxybackend
 
@@ -75,9 +75,9 @@ services:
     mem_limit: "0.5G"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - 9000:8080
-      - 9001:8081
     networks:
       - proxybackend
 
@@ -91,9 +91,9 @@ services:
     mem_limit: "0.5G"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - 3000:8080
-      - 3001:8081
     networks:
       - proxybackend
 
