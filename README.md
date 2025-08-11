@@ -6,11 +6,11 @@ This repository presents a comprehensive example project that demonstrates how t
 
 ## 🚀 Project Overview
 
-- ASP.NET Core Web API: A RESTful API built with ASP.NET Core.
-- Dapper: A lightweight Object-Relational Mapper (ORM) for data access.
-- PostgreSQL: The relational database backend.
-- Docker: Containerization of the application for consistent environments.
-- YARP: A reverse proxy for distributing incoming traffic across multiple API instances.
+- **ASP.NET Core Web API (Minimal API):** A lightweight and high-performance RESTful API built using ASP.NET Core Minimal APIs, designed for simplicity and efficiency.
+- **Dapper:** A lightweight Object-Relational Mapper (ORM) that provides fast and simple data access.
+- **PostgreSQL:** A powerful, open-source relational database system used as the backend data store.
+- **Docker:** Containerization technology for creating consistent and portable application environments.
+- **YARP:** Yet Another Reverse Proxy, used to efficiently distribute incoming traffic across multiple API instances for load balancing and scalability.
 
 ## 🛠️ Prerequisites
 
