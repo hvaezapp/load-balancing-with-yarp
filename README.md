@@ -12,4 +12,32 @@ This repository presents a comprehensive example project that demonstrates how t
 - Docker: Containerization of the application for consistent environments.
 - YARP: A reverse proxy for distributing incoming traffic across multiple API instances.
 
+## 🛠️ Prerequisites
 
+Ensure you have the following installed:
+
+- .NET SDK (version 9.0)
+- Docker Desktop
+
+## 📦 Project Setup
+
+1. Clone the Repository
+
+   ```bash
+   git clone https://github.com/hvaezapp/load-balancing-with-yarp.git
+   cd load-balancing-yarp
+   
+2. Restore Dependencies
+
+   ```bash
+   dotnet restore
+   
+3. Build the Solution
+
+   ```bash
+   dotnet build
+   
+4. Docker Integration 
+
+   ```bash
+   docker-compose up
