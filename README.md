@@ -1,2 +1,2 @@
-# load-balancing-with-yarp
+# Load Balancing with YARP
 This repository presents a comprehensive example project that demonstrates how to implement horizontal scaling and efficient load balancing for ASP.NET Core web applications using YARP (Yet Another Reverse Proxy). The solution includes containerized API instances running with Docker, leveraging Dapper for lightweight and performant data access with PostgreSQL as the database backend. This setup enables seamless distribution of client requests across multiple service instances, ensuring high availability and scalability in modern microservices architectures.
