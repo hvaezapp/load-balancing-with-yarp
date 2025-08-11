@@ -1,4 +1,4 @@
-# Load Balancing with YARP, Dapper, PostgreSQL, and Docker
+# Load Balancing with YARP
 
 ## About
 
